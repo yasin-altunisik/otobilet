@@ -18,7 +18,7 @@ export default function App() {
         <Stack.Screen
           name="Signin"
           component={Signin}
-          options={{ headerShown: false }}
+          options={{ title: "Kayıt Ol" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

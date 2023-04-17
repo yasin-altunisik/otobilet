@@ -16,9 +16,10 @@ function HomeScreen({ navigation }) {
   const [password, onChangePassword] = React.useState(
     "Please enter your password here."
   );
+
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor="crimson" />
+      <StatusBar backgroundColor="black" barStyle="light-content" />
       <View style={styles.headerContainer}>
         <Text style={styles.header}>Otobilet</Text>
       </View>
