@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -9,9 +8,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import styles from "./Home.style";
+import styles from "./Login.style";
 
-function HomeScreen({ navigation }) {
+function Login({ navigation }) {
   const [mail, onChangeMail] = React.useState("Please enter your mail here.");
   const [password, onChangePassword] = React.useState(
     "Please enter your password here."
@@ -21,7 +20,7 @@ function HomeScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="black" barStyle="light-content" />
       <View style={styles.headerContainer}>
-        <Text style={styles.header}>Otobilet</Text>
+        <Text style={styles.header}>Otobilet.com</Text>
       </View>
       <View style={styles.bodyContainer}>
         <Text>
@@ -39,7 +38,10 @@ function HomeScreen({ navigation }) {
           onChangeText={onChangePassword}
           value={password}
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("TicketSearch")}
+        >
           <Text>GİRİŞ</Text>
         </TouchableOpacity>
         <Text> </Text>
@@ -49,11 +51,11 @@ function HomeScreen({ navigation }) {
           style={styles.button}
           onPress={() => navigation.navigate("Signin")}
         >
-          <Text>KAYDOL</Text>
+          <Text>KAYIT</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 }
 
-export default HomeScreen;
+export default Login;

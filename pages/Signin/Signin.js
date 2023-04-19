@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, View, Button } from "react-native";
+import { TextInput, View, Button, Text } from "react-native";
 import styles from "./Signin.style";
 
 function Signin({ navigation }) {
@@ -10,9 +10,12 @@ function Signin({ navigation }) {
   const [gender, onChangeGender] = React.useState("");
   const [mail, onChangeMail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
+  const [rePassword, onChangeRePassword] = React.useState("");
 
   return (
     <View style={styles.container}>
+      <Text>Kullanıcı bilgilerinizi giriniz.</Text>
+      <Text></Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeName}
@@ -45,23 +48,23 @@ function Signin({ navigation }) {
       />
       <TextInput
         style={styles.input}
-        onChangeText={onChangeName}
-        value={name}
+        onChangeText={onChangeMail}
+        value={mail}
         placeholder="e-posta adresi"
       />
       <TextInput
         style={styles.input}
-        onChangeText={onChangeName}
-        value={name}
+        onChangeText={onChangePassword}
+        value={password}
         placeholder="şifre"
       />
       <TextInput
         style={styles.input}
-        onChangeText={onChangeName}
-        value={name}
+        onChangeText={onChangeRePassword}
+        value={rePassword}
         placeholder="şifre tekrarı"
       />
-      <Button title="Kayıt Ol" />
+      <Button title="Kaydol" onPress={() => navigation.navigate("Login")} />
     </View>
   );
 }
