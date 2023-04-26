@@ -45,20 +45,55 @@ export default StyleSheet.create({
   },
   gidisDonusContainer: {
     flexDirection: "row",
-    backgroundColor: "darkgrey",
-    padding: 5,
     borderRadius: 5,
   },
   gidisContainer: {
     padding: 5,
-    margin: 5,
-    backgroundColor: "yellow",
     borderRadius: 5,
+    marginRight: 5,
+    alignItems: "center",
+
+    shadowColor: "rgba(0,0,0, .8)", // IOS
+    shadowOffset: { height: 5, width: 5 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: "white",
+    elevation: 10, // Android
   },
   donusContainer: {
     padding: 5,
-    margin: 5,
-    backgroundColor: "green",
     borderRadius: 5,
+    marginLeft: 5,
+    alignItems: "center",
+
+    shadowColor: "rgba(0,0,0, .8)", // IOS
+    shadowOffset: { height: 5, width: 5 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: "#DBDBDB",
+    //elevation: 10, // Android
+  },
+  disabledDonusContainer: {
+    padding: 5,
+    borderRadius: 5,
+    marginLeft: 5,
+    alignItems: "center",
+
+    shadowColor: "rgba(0,0,0, .8)", // IOS
+    shadowOffset: { height: 5, width: 5 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: "#fff",
+  },
+  verticleLine: {
+    height: "100%",
+    width: 1,
+    backgroundColor: "#909090",
+  },
+  button: {
+    color: "black",
+  },
+  disabledButton: {
+    color: "#A4A4A4",
   },
 });

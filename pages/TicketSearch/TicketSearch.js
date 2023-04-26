@@ -131,14 +131,15 @@ function TicketSearch() {
             <Text>Gidiş</Text>
             <Text>{gidisDate}</Text>
           </TouchableOpacity>
+          <View style={styles.verticleLine}></View>
           <TouchableOpacity
             style={styles.donusContainer}
             onPress={() => {
               setIsPressedDonusDate(!isPressedDonusDate);
             }}
           >
-            <Text>Dönüş</Text>
-            <Text>{donusDate}</Text>
+            <Text style={styles.disabledButton}>Dönüş</Text>
+            <Text style={styles.disabledButton}>{donusDate}</Text>
           </TouchableOpacity>
         </View>
         <Text></Text>

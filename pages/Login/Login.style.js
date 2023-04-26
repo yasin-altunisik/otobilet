@@ -35,6 +35,6 @@ export default StyleSheet.create({
     backgroundColor: "grey",
     padding: 5,
     borderRadius: 5,
-    textAlign: "center",
+    alignItems: "center",
   },
 });
