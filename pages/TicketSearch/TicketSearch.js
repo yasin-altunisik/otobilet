@@ -27,8 +27,12 @@ function TicketSearch() {
   const [isPressedGidisDate, setIsPressedGidisDate] = useState(false);
   const [isPressedDonusDate, setIsPressedDonusDate] = useState(false);
 
-  function onPressRadioButton() {
-    console.log(radioButtons[0].selected);
+  console.log("initial state of raadioButtons");
+  console.log(radioButtons);
+
+  function onPressRadioButton(radioButtonsArray) {
+    setRadioButtons(radioButtonsArray);
+    console.log(radioButtonsArray);
   }
 
   return (
@@ -132,15 +136,18 @@ function TicketSearch() {
             <Text>{gidisDate}</Text>
           </TouchableOpacity>
           <View style={styles.verticleLine}></View>
-          <TouchableOpacity
-            style={styles.donusContainer}
-            onPress={() => {
-              setIsPressedDonusDate(!isPressedDonusDate);
-            }}
-          >
-            <Text style={styles.disabledButton}>Dönüş</Text>
-            <Text style={styles.disabledButton}>{donusDate}</Text>
-          </TouchableOpacity>
+
+          {radioButtons[0].selected && (
+            <TouchableOpacity
+              style={styles.donusContainer}
+              onPress={() => {
+                //setIsPressedDonusDate(!isPressedDonusDate);
+              }}
+            >
+              <Text style={styles.disabledButton}>Dönüş</Text>
+              <Text style={styles.disabledButton}>{donusDate}</Text>
+            </TouchableOpacity>
+          )}
         </View>
         <Text></Text>
         {isPressedGidisDate && (
