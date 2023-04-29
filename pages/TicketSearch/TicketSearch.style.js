@@ -70,8 +70,8 @@ export default StyleSheet.create({
     shadowOffset: { height: 5, width: 5 }, // IOS
     shadowOpacity: 1, // IOS
     shadowRadius: 1, //IOS
-    backgroundColor: "#DBDBDB",
-    //elevation: 10, // Android
+    backgroundColor: "white",
+    elevation: 10, // Android
   },
   disabledDonusContainer: {
     padding: 5,
@@ -83,7 +83,7 @@ export default StyleSheet.create({
     shadowOffset: { height: 5, width: 5 }, // IOS
     shadowOpacity: 1, // IOS
     shadowRadius: 1, //IOS
-    backgroundColor: "#fff",
+    backgroundColor: "#DBDBDB",
   },
   verticleLine: {
     height: "100%",

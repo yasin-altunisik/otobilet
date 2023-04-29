@@ -13,12 +13,13 @@ function TicketSearch() {
       id: "1", // acts as primary key, should be unique and non-empty string
       label: "Gidiş",
       value: "gidis",
-      selected: "true",
+      //selected: "false",
     },
     {
       id: "2",
       label: "Gidiş-Dönüş",
       value: "gidisdonus",
+      selected: "true",
     },
   ]);
   const [selected, setSelected] = useState("");
@@ -26,8 +27,11 @@ function TicketSearch() {
   const [donusDate, setDonusDate] = useState("10.10.1997");
   const [isPressedGidisDate, setIsPressedGidisDate] = useState(false);
   const [isPressedDonusDate, setIsPressedDonusDate] = useState(false);
+  const [isGidisDonus, setIsGidisDonus] = useState(true);
 
-  function onPressRadioButton() {
+  function onPressRadioButton(radioButtonsArray) {
+    setRadioButtons(radioButtonsArray);
+
     console.log(radioButtons[0].selected);
   }
 
@@ -128,19 +132,31 @@ function TicketSearch() {
               setIsPressedGidisDate(!isPressedGidisDate);
             }}
           >
-            <Text>Gidiş</Text>
-            <Text>{gidisDate}</Text>
+            <Text style={styles.button}>Gidiş</Text>
+            <Text style={styles.button}>{gidisDate}</Text>
           </TouchableOpacity>
           <View style={styles.verticleLine}></View>
-          <TouchableOpacity
-            style={styles.donusContainer}
-            onPress={() => {
-              setIsPressedDonusDate(!isPressedDonusDate);
-            }}
-          >
-            <Text style={styles.disabledButton}>Dönüş</Text>
-            <Text style={styles.disabledButton}>{donusDate}</Text>
-          </TouchableOpacity>
+          {isPressedGidisDate ? (
+            <TouchableOpacity
+              style={styles.donusContainer}
+              onPress={() => {
+                setIsPressedDonusDate(!isPressedDonusDate);
+              }}
+            >
+              <Text style={styles.button}>Dönüş</Text>
+              <Text style={styles.button}>{donusDate}</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              style={styles.disabledDonusContainer}
+              onPress={() => {
+                setIsPressedDonusDate(!isPressedDonusDate);
+              }}
+            >
+              <Text style={styles.disabledButton}>Dönüş</Text>
+              <Text style={styles.disabledButton}>{donusDate}</Text>
+            </TouchableOpacity>
+          )}
         </View>
         <Text></Text>
         {isPressedGidisDate && (
