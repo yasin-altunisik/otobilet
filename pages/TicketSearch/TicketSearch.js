@@ -136,27 +136,15 @@ function TicketSearch() {
             <Text style={styles.button}>{gidisDate}</Text>
           </TouchableOpacity>
           <View style={styles.verticleLine}></View>
-          {isPressedGidisDate ? (
-            <TouchableOpacity
-              style={styles.donusContainer}
-              onPress={() => {
-                setIsPressedDonusDate(!isPressedDonusDate);
-              }}
-            >
-              <Text style={styles.button}>Dönüş</Text>
-              <Text style={styles.button}>{donusDate}</Text>
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              style={styles.disabledDonusContainer}
-              onPress={() => {
-                setIsPressedDonusDate(!isPressedDonusDate);
-              }}
-            >
-              <Text style={styles.disabledButton}>Dönüş</Text>
-              <Text style={styles.disabledButton}>{donusDate}</Text>
-            </TouchableOpacity>
-          )}
+          <TouchableOpacity
+            style={styles.donusContainer}
+            onPress={() => {
+              setIsPressedDonusDate(!isPressedDonusDate);
+            }}
+          >
+            <Text style={styles.disabledButton}>Dönüş</Text>
+            <Text style={styles.disabledButton}>{donusDate}</Text>
+          </TouchableOpacity>
         </View>
         <Text></Text>
         {isPressedGidisDate && (
