@@ -33,7 +33,66 @@ function TicketSearch() {
     setRadioButtons(radioButtonsArray);
 
     console.log(radioButtons[0].selected);
+    if (radioButtons[0].selected === true) {
+      setIsGidisDonus(false);
+      setIsPressedGidisDate(false);
+      setIsPressedDonusDate(false);
+    } else {
+      setIsGidisDonus(true);
+      setIsPressedGidisDate(false);
+      setIsPressedDonusDate(false);
+    }
   }
+
+  const CalendarView = () => {
+    return (
+      <View
+        style={{
+          alignItems: "center",
+        }}
+      >
+        {isPressedGidisDate && <Text>Gidiş tarihi seçin</Text>}
+        {isPressedDonusDate && <Text>Dönüş tarihi seçin</Text>}
+        <Calendar
+          onDayPress={(day) => {
+            setSelected(day.dateString);
+            let reversedDate = day.day + "." + day.month + "." + day.year;
+            console.log("reversed", reversedDate);
+            isPressedGidisDate
+              ? setGidisDate(reversedDate)
+              : setDonusDate(reversedDate);
+          }}
+          markedDates={{
+            [selected]: {
+              selected: true,
+              disableTouchEvent: true,
+              selectedDotColor: "orange",
+            },
+          }}
+        />
+      </View>
+    );
+  };
+
+  let touchPropsGidis = {
+    style: isPressedGidisDate
+      ? styles.gidisContainerPressed
+      : styles.gidisContainer,
+    onPress: () => {
+      setIsPressedGidisDate(!isPressedGidisDate);
+      setIsPressedDonusDate(false);
+    },
+  };
+
+  let touchPropsDonus = {
+    style: isPressedDonusDate
+      ? styles.donusContainerPressed
+      : styles.donusContainer,
+    onPress: () => {
+      setIsPressedDonusDate(!isPressedDonusDate);
+      setIsPressedGidisDate(false);
+    },
+  };
 
   return (
     <View style={styles.container}>
@@ -126,41 +185,44 @@ function TicketSearch() {
         />
         <Text></Text>
         <View style={styles.gidisDonusContainer}>
-          <TouchableOpacity
-            style={styles.gidisContainer}
-            onPress={() => {
-              setIsPressedGidisDate(!isPressedGidisDate);
-            }}
-          >
-            <Text style={styles.button}>Gidiş</Text>
-            <Text style={styles.button}>{gidisDate}</Text>
+          <TouchableOpacity {...touchPropsGidis}>
+            <Text style={{ color: "black" }}>Gidiş</Text>
+            <Text style={{ color: "black" }}>{gidisDate}</Text>
           </TouchableOpacity>
           <View style={styles.verticleLine}></View>
-          <TouchableOpacity
-            style={styles.donusContainer}
-            onPress={() => {
-              setIsPressedDonusDate(!isPressedDonusDate);
-            }}
-          >
-            <Text style={styles.disabledButton}>Dönüş</Text>
-            <Text style={styles.disabledButton}>{donusDate}</Text>
-          </TouchableOpacity>
+          {isGidisDonus ? (
+            <TouchableOpacity {...touchPropsDonus}>
+              <Text
+                style={{
+                  color: "black",
+                }}
+              >
+                Dönüş
+              </Text>
+              <Text
+                style={{
+                  color: "black",
+                }}
+              >
+                {donusDate}
+              </Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              disabled={true}
+              style={styles.disabledDonusContainer}
+              onPress={() => {
+                setIsPressedDonusDate(!isPressedDonusDate);
+              }}
+            >
+              <Text style={{ color: "#A4A4A4" }}>Dönüş</Text>
+              <Text style={{ color: "#A4A4A4" }}>- - . - - . - - - -</Text>
+            </TouchableOpacity>
+          )}
         </View>
         <Text></Text>
-        {isPressedGidisDate && (
-          <Calendar
-            onDayPress={(day) => {
-              setSelected(day.dateString);
-            }}
-            markedDates={{
-              [selected]: {
-                selected: true,
-                disableTouchEvent: true,
-                selectedDotColor: "orange",
-              },
-            }}
-          />
-        )}
+        {isPressedGidisDate && CalendarView()}
+        {isPressedDonusDate && CalendarView()}
       </View>
     </View>
   );

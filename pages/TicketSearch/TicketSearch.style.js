@@ -17,9 +17,10 @@ export default StyleSheet.create({
     color: "white",
   },
   bodyContainer: {
+    marginTop: 10,
     flex: 9,
     alignItems: "center",
-    justifyContent: "center",
+    //justifyContent: "center",
   },
   dropdown1BtnStyle: {
     width: "80%",
@@ -52,6 +53,23 @@ export default StyleSheet.create({
     borderRadius: 5,
     marginRight: 5,
     alignItems: "center",
+    width: 100,
+
+    shadowColor: "rgba(0,0,0, .8)", // IOS
+    shadowOffset: { height: 5, width: 5 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: "white",
+    elevation: 10, // Android
+  },
+  gidisContainerPressed: {
+    padding: 5,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "black",
+    marginRight: 5,
+    alignItems: "center",
+    width: 100,
 
     shadowColor: "rgba(0,0,0, .8)", // IOS
     shadowOffset: { height: 5, width: 5 }, // IOS
@@ -65,6 +83,23 @@ export default StyleSheet.create({
     borderRadius: 5,
     marginLeft: 5,
     alignItems: "center",
+    width: 100,
+
+    shadowColor: "rgba(0,0,0, .8)", // IOS
+    shadowOffset: { height: 5, width: 5 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: "white",
+    elevation: 10, // Android
+  },
+  donusContainerPressed: {
+    padding: 5,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "black",
+    marginLeft: 5,
+    alignItems: "center",
+    width: 100,
 
     shadowColor: "rgba(0,0,0, .8)", // IOS
     shadowOffset: { height: 5, width: 5 }, // IOS
@@ -78,6 +113,7 @@ export default StyleSheet.create({
     borderRadius: 5,
     marginLeft: 5,
     alignItems: "center",
+    width: 100,
 
     shadowColor: "rgba(0,0,0, .8)", // IOS
     shadowOffset: { height: 5, width: 5 }, // IOS
