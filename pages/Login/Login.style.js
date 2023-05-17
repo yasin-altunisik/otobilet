@@ -25,16 +25,30 @@ export default StyleSheet.create({
   bodyContainer: {
     padding: 20,
     flex: 2,
-    backgroundColor: "white",
+    backgroundColor: "#f2f2f2",
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
   },
   button: {
+    /*
     width: 100,
-    backgroundColor: "grey",
+    backgroundColor: "white",
     padding: 5,
     borderRadius: 5,
     alignItems: "center",
+    */
+
+    padding: 5,
+    borderRadius: 5,
+    alignItems: "center",
+    width: 100,
+
+    shadowColor: "rgba(0,0,0, .8)", // IOS
+    shadowOffset: { height: 5, width: 5 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: "white",
+    elevation: 10, // Android
   },
 });

@@ -1,6 +1,7 @@
 import React from "react";
 import { TextInput, View, Button, Text } from "react-native";
 import styles from "./Signin.style";
+import { TouchableOpacity } from "react-native";
 
 function Signin({ navigation }) {
   const [name, onChangeName] = React.useState("");
@@ -64,7 +65,13 @@ function Signin({ navigation }) {
         value={rePassword}
         placeholder="şifre tekrarı"
       />
-      <Button title="Kaydol" onPress={() => navigation.navigate("Login")} />
+      {/* <Button title="Kaydol" onPress={() => navigation.navigate("Login")} /> */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Login")}
+      >
+        <Text>Kaydol</Text>
+      </TouchableOpacity>
     </View>
   );
 }

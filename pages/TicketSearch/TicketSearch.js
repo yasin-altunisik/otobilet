@@ -6,7 +6,7 @@ import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Calendar, LocaleConfig } from "react-native-calendars";
 
-function TicketSearch() {
+function TicketSearch({ navigation }) {
   const countries = ["Egypt", "Canada", "Australia", "Ireland"];
   const [radioButtons, setRadioButtons] = useState([
     {
@@ -70,6 +70,7 @@ function TicketSearch() {
             },
           }}
         />
+        <Text></Text>
       </View>
     );
   };
@@ -223,6 +224,19 @@ function TicketSearch() {
         <Text></Text>
         {isPressedGidisDate && CalendarView()}
         {isPressedDonusDate && CalendarView()}
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.searchButton}
+            onPress={() =>
+              navigation.navigate("TicketSelect", {
+                goingDate: gidisDate,
+                comebackDate: donusDate,
+              })
+            }
+          >
+            <Text>Ara</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

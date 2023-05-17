@@ -3,25 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./pages/Login/Login";
 import Signin from "./pages/Signin/Signin";
-import { View, Text } from "react-native";
 import TicketSearch from "./pages/TicketSearch/TicketSearch";
+import TicketSelect from "./pages/TicketSelect/TicketSelect";
+import VoyageDetail from "./pages/VoyageDetail/VoyageDetail";
 
 const Stack = createNativeStackNavigator();
-/*
-function TicketSearch() {
-  return (
-    <View
-    style={{
-      flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-      >
-      <Text>Ticket Ticket</Text>
-      </View>
-      );
-    }
-    */
 
 export default function App() {
   return (
@@ -40,6 +26,16 @@ export default function App() {
         <Stack.Screen
           name="TicketSearch"
           component={TicketSearch}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TicketSelect"
+          component={TicketSelect}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="VoyageDetail"
+          component={VoyageDetail}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

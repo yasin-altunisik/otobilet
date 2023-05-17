@@ -132,4 +132,22 @@ export default StyleSheet.create({
   disabledButton: {
     color: "#A4A4A4",
   },
+  buttonContainer: {
+    width: "100%",
+    flexDirection: "row-reverse",
+  },
+  searchButton: {
+    padding: 5,
+    borderRadius: 5,
+    alignItems: "center",
+    width: 80,
+    marginRight: "20%",
+
+    shadowColor: "rgba(0,0,0, .8)", // IOS
+    shadowOffset: { height: 5, width: 5 }, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: "white",
+    elevation: 10, // Android
+  },
 });
