@@ -1,5 +1,5 @@
 import react from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { Divider } from "@rneui/themed";
 import styles from "./VoyageDetail.style";
 import BusSeatViewer from "../../components/busSeatViewer/BusSeatViewer.js";
@@ -56,6 +56,30 @@ const VoyageDetail = ({ route }) => {
         </View>
 
         <BusSeatViewer />
+
+        <View style={{ alignItems: "flex-end", margin: 10 }}>
+          <TouchableOpacity>
+            <View
+              style={{
+                borderWidth: 1,
+                borderRadius: 10,
+                width: 80,
+                height: 60,
+                padding: 5,
+                backgroundColor: "white",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <View>
+                <Text>70 TL</Text>
+              </View>
+              <View>
+                <Text>Satın Al</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
