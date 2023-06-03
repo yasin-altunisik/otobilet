@@ -32,7 +32,6 @@ function TicketSearch({ navigation }) {
   function onPressRadioButton(radioButtonsArray) {
     setRadioButtons(radioButtonsArray);
 
-    console.log(radioButtons[0].selected);
     if (radioButtons[0].selected === true) {
       setIsGidisDonus(false);
       setIsPressedGidisDate(false);
@@ -57,7 +56,6 @@ function TicketSearch({ navigation }) {
           onDayPress={(day) => {
             setSelected(day.dateString);
             let reversedDate = day.day + "." + day.month + "." + day.year;
-            console.log("reversed", reversedDate);
             isPressedGidisDate
               ? setGidisDate(reversedDate)
               : setDonusDate(reversedDate);
@@ -111,9 +109,7 @@ function TicketSearch({ navigation }) {
           data={countries}
           // defaultValueByIndex={1}
           // defaultValue={'Egypt'}
-          onSelect={(selectedItem, index) => {
-            console.log(selectedItem, index);
-          }}
+          onSelect={(selectedItem, index) => {}}
           defaultButtonText={"Kalkış Noktası seçiniz"}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
@@ -150,9 +146,7 @@ function TicketSearch({ navigation }) {
           data={countries}
           // defaultValueByIndex={1}
           // defaultValue={'Egypt'}
-          onSelect={(selectedItem, index) => {
-            console.log(selectedItem, index);
-          }}
+          onSelect={(selectedItem, index) => {}}
           defaultButtonText={"Varış Noktası seçiniz"}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
