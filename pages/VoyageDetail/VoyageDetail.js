@@ -55,6 +55,25 @@ const VoyageDetail = ({ route }) => {
           </View>
         </View>
 
+        <Text></Text>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.seatBisque}></View>
+          <Text>Boş koltuk</Text>
+          <View style={styles.seatPink}></View>
+          <Text>Kadın Yolcu</Text>
+          <View style={styles.seatLightskyblue}></View>
+          <Text>Erkek Yolcu</Text>
+        </View>
+
+        <Text></Text>
+
         <BusSeatViewer />
 
         <View style={{ alignItems: "flex-end", margin: 10 }}>

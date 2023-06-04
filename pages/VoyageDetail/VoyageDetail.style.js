@@ -36,4 +36,25 @@ export default StyleSheet.create({
     paddingVertical: 10,
     marginVertical: 5,
   },
+  seatPink: {
+    width: 30,
+    height: 30,
+    backgroundColor: "pink",
+    borderRadius: 10,
+    margin: 5,
+  },
+  seatLightskyblue: {
+    width: 30,
+    height: 30,
+    backgroundColor: "lightskyblue",
+    borderRadius: 10,
+    margin: 5,
+  },
+  seatBisque: {
+    width: 30,
+    height: 30,
+    backgroundColor: "bisque",
+    borderRadius: 10,
+    margin: 5,
+  },
 });
