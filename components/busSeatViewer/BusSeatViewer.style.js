@@ -16,7 +16,14 @@ export default StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
   },
-  seat: {
+  seatPink: {
+    width: 30,
+    height: 30,
+    backgroundColor: "pink",
+    borderRadius: 10,
+    margin: 5,
+  },
+  seatBlue: {
     width: 30,
     height: 30,
     backgroundColor: "pink",
