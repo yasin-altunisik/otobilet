@@ -430,13 +430,13 @@ const seats = () => {
   for (let i = 0; i < 15; i++) {
     let seatSingle = [];
     for (let k = 0; k < 4; k++) {
-      if (data[(i + 1) * (k + 1)].seatid != 0) {
+      if (data[(i * 4) + (k + 1)].seatid != 0) {
         seatSingle[k] = (
-          <View key={data[(i + 1) * (k + 1)].id} style={styles.seatPink}></View>
+          <View key={data[(i * 4) + (k + 1)].id} style={styles.seatPink}></View>
         );
       } else {
         seatSingle[k] = (
-          <View key={data[(i + 1) * (k + 1)].id} style={styles.seatBlue}></View>
+          <View key={data[(i * 4) + (k + 1)].id} style={styles.seatBlue}></View>
         );
       }
     }
