@@ -26,7 +26,24 @@ export default StyleSheet.create({
   seatBlue: {
     width: 30,
     height: 30,
-    backgroundColor: "pink",
+    backgroundColor: "lightskyblue",
+    borderRadius: 10,
+    margin: 5,
+  },
+  text: {
+    fontSize: 12,
+  },
+  seatBisque: {
+    width: 30,
+    height: 30,
+    backgroundColor: "bisque",
+    borderRadius: 10,
+    margin: 5,
+  },
+  seatWhite: {
+    width: 30,
+    height: 30,
+    backgroundColor: "White",
     borderRadius: 10,
     margin: 5,
   },
