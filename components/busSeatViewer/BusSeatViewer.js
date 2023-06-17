@@ -460,7 +460,7 @@ const seats = () => {
         );
       }
     }
-    let view = <View>{seatSingle}</View>;
+    let view = <View key={i}>{seatSingle}</View>;
 
     seatLine[i] = view;
   }
