@@ -6,6 +6,7 @@ import Signin from "./pages/Signin/Signin";
 import TicketSearch from "./pages/TicketSearch/TicketSearch";
 import TicketSelect from "./pages/TicketSelect/TicketSelect";
 import VoyageDetail from "./pages/VoyageDetail/VoyageDetail";
+import PayScreen from "./pages/PayScreen/PayScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,11 @@ export default function App() {
         <Stack.Screen
           name="VoyageDetail"
           component={VoyageDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PayScreen"
+          component={PayScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

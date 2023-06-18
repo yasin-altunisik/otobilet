@@ -4,7 +4,7 @@ import { Divider } from "@rneui/themed";
 import styles from "./VoyageDetail.style";
 import BusSeatViewer from "../../components/busSeatViewer/BusSeatViewer.js";
 
-const VoyageDetail = ({ route }) => {
+const VoyageDetail = ({ route, navigation }) => {
   const { firma, tarih, saat, bosKoltuk } = route.params;
   return (
     <View style={styles.container}>
@@ -77,7 +77,7 @@ const VoyageDetail = ({ route }) => {
         <BusSeatViewer />
 
         <View style={{ alignItems: "flex-end", margin: 10 }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("PayScreen")}>
             <View
               style={{
                 borderWidth: 1,
