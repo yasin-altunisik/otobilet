@@ -1,5 +1,5 @@
 import react from "react";
-import { View, Text } from "react-native";
+import { View, Text, TextInput, Button } from "react-native";
 import styles from "./PayScreen.style";
 
 const PayScreen = () => {
@@ -9,7 +9,18 @@ const PayScreen = () => {
         <Text style={styles.header}>Otobilet.com</Text>
       </View>
       <View style={styles.bodyContainer}>
-        <Text>ödeme ekranı</Text>
+        <TextInput style={styles.inputLarge} placeholder="Kart Numarası" />
+        <TextInput
+          style={styles.inputLarge}
+          placeholder="Kart Üzerindeki İsim"
+        />
+        <View style={styles.row}>
+          <TextInput style={styles.inputMedium} placeholder="CVC/CV2" />
+          <TextInput style={styles.inputMedium} placeholder="Kart Tarihi" />
+        </View>
+        <View style={styles.alignRight}>
+          <Button title="öde" />
+        </View>
       </View>
     </View>
   );
