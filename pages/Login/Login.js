@@ -11,10 +11,8 @@ import {
 import styles from "./Login.style";
 
 function Login({ navigation }) {
-  const [mail, onChangeMail] = React.useState("Please enter your mail here.");
-  const [password, onChangePassword] = React.useState(
-    "Please enter your password here."
-  );
+  const [mail, onChangeMail] = React.useState("");
+  const [password, onChangePassword] = React.useState("");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,11 +30,13 @@ function Login({ navigation }) {
           style={styles.input}
           onChangeText={onChangeMail}
           value={mail}
+          placeholder="Please enter your mail here."
         />
         <TextInput
           style={styles.input}
           onChangeText={onChangePassword}
           value={password}
+          placeholder="Please enter your password here."
         />
         <TouchableOpacity
           style={styles.button}
