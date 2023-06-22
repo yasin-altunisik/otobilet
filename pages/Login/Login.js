@@ -30,13 +30,13 @@ function Login({ navigation }) {
           style={styles.input}
           onChangeText={onChangeMail}
           value={mail}
-          placeholder="Please enter your mail here."
+          placeholder="Please enter your mail here"
         />
         <TextInput
           style={styles.input}
           onChangeText={onChangePassword}
           value={password}
-          placeholder="Please enter your password here."
+          placeholder="Please enter your password here"
         />
         <TouchableOpacity
           style={styles.button}
