@@ -11,6 +11,14 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     padding: 10,
   },
+  warningInput: {
+    height: 40,
+    width: 250,
+    margin: 12,
+    borderBottomWidth: 1,
+    borderColor: "red",
+    padding: 10,
+  },
   headerContainer: {
     flex: 1,
     backgroundColor: "crimson",

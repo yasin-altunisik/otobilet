@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
+  ToastAndroid,
 } from "react-native";
 
 import styles from "./Login.style";
@@ -13,6 +14,34 @@ import styles from "./Login.style";
 function Login({ navigation }) {
   const [mail, onChangeMail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
+  const [warning, setWarning] = React.useState(false);
+
+  const userData = [
+    {
+      userId: 1,
+      mail: "altun.yasin.isik@gmail.com",
+      name: "yasin",
+      surname: "altunışık",
+      nationalIdentificationNumber: 1,
+      birthDate: "1.1.1911",
+      sex: "male",
+      password: "password123",
+    },
+  ];
+
+  const checkLogin = () => {
+    if (mail === "" || password === "") {
+      ToastAndroid.showWithGravity(
+        "mail veya şifre boş olamaz",
+        ToastAndroid.SHORT,
+        ToastAndroid.TOP
+      );
+      setWarning(true);
+      return;
+    }
+    setWarning(false);
+    navigation.navigate("TicketSearch");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,21 +56,18 @@ function Login({ navigation }) {
         </Text>
         <Text> </Text>
         <TextInput
-          style={styles.input}
+          style={warning == true ? styles.warningInput : styles.input}
           onChangeText={onChangeMail}
           value={mail}
-          placeholder="Please enter your mail here"
+          placeholder="eposta adresinizi girin"
         />
         <TextInput
-          style={styles.input}
+          style={warning == true ? styles.warningInput : styles.input}
           onChangeText={onChangePassword}
           value={password}
-          placeholder="Please enter your password here"
+          placeholder="şifrenizi girin"
         />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("TicketSearch")}
-        >
+        <TouchableOpacity style={styles.button} onPress={checkLogin}>
           <Text>GİRİŞ</Text>
         </TouchableOpacity>
         <Text> </Text>
