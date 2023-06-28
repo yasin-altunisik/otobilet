@@ -11,36 +11,79 @@ import {
 
 import styles from "./Login.style";
 
-function Login({ navigation }) {
-  const [mail, onChangeMail] = React.useState("");
-  const [password, onChangePassword] = React.useState("");
-  const [warning, setWarning] = React.useState(false);
+function Login({ navigation, route }) {
+  React.useEffect(() => {
+    //setUserData(route.params?.user);
 
-  const userData = [
+    if (route.params?.user) {
+      setUserData((currentUsers) => [...currentUsers, route.params?.user]);
+      //setUserData(route.params?.user);
+    }
+  }, [route.params?.user]);
+
+  const [loginMail, setLoginMail] = React.useState("");
+  const [loginPassword, setLoginPassword] = React.useState("");
+  const [warning, setWarning] = React.useState(false);
+  const [userData, setUserData] = React.useState([
     {
-      userId: 1,
+      userId: "1",
       mail: "altun.yasin.isik@gmail.com",
       name: "yasin",
       surname: "altunışık",
-      nationalIdentificationNumber: 1,
+      nationalIdentificationNumber: "1",
       birthDate: "1.1.1911",
-      sex: "male",
+      gender: "male",
       password: "password123",
     },
-  ];
+    {
+      userId: "2",
+      mail: "a",
+      name: "a",
+      surname: "a",
+      nationalIdentificationNumber: "a",
+      birthDate: "a",
+      gender: "a",
+      password: "a",
+    },
+  ]);
 
   const checkLogin = () => {
-    if (mail === "" || password === "") {
+    if (loginMail === "" || loginPassword === "") {
       ToastAndroid.showWithGravity(
         "mail veya şifre boş olamaz",
-        ToastAndroid.SHORT,
+        ToastAndroid.LONG,
         ToastAndroid.TOP
       );
       setWarning(true);
       return;
     }
-    setWarning(false);
-    navigation.navigate("TicketSearch");
+
+    userData.forEach((user, i) => {
+      if (user.mail === loginMail) {
+        if (user.password === loginPassword) {
+          setWarning(false);
+          ToastAndroid.showWithGravity(
+            "Giriş başarılı",
+            ToastAndroid.LONG,
+            ToastAndroid.TOP
+          );
+          navigation.navigate("TicketSearch");
+          return;
+        }
+      }
+      if (i + 1 >= userData.length) {
+        setWarning(true);
+        ToastAndroid.showWithGravity(
+          "Kayıt bulunamadı! Bilgilerinizi kontrol edin veya kaydolun",
+          ToastAndroid.LONG,
+          ToastAndroid.TOP
+        );
+      }
+    });
+  };
+
+  const gotoSignInPage = () => {
+    navigation.navigate("Signin");
   };
 
   return (
@@ -57,15 +100,16 @@ function Login({ navigation }) {
         <Text> </Text>
         <TextInput
           style={warning == true ? styles.warningInput : styles.input}
-          onChangeText={onChangeMail}
-          value={mail}
+          onChangeText={setLoginMail}
+          value={loginMail}
           placeholder="eposta adresinizi girin"
         />
         <TextInput
           style={warning == true ? styles.warningInput : styles.input}
-          onChangeText={onChangePassword}
-          value={password}
+          onChangeText={setLoginPassword}
+          value={loginPassword}
           placeholder="şifrenizi girin"
+          secureTextEntry
         />
         <TouchableOpacity style={styles.button} onPress={checkLogin}>
           <Text>GİRİŞ</Text>
@@ -73,10 +117,7 @@ function Login({ navigation }) {
         <Text> </Text>
         <Text>veya</Text>
         <Text> </Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Signin")}
-        >
+        <TouchableOpacity style={styles.button} onPress={gotoSignInPage}>
           <Text>KAYIT</Text>
         </TouchableOpacity>
       </View>
