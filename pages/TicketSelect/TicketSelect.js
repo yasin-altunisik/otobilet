@@ -7,14 +7,14 @@ import Voyage from "../../components/voyage/Voyage";
 const VoyageData = [
   {
     id: "1",
-    firma: "kamil Koç",
+    firma: "Metro",
     saat: "12.00",
     bosKoltuk: "20",
     fiyat: "250",
   },
   {
     id: "2",
-    firma: "As Bafra",
+    firma: "Ses",
     saat: "13.00",
     bosKoltuk: "2",
     fiyat: "450",
@@ -36,7 +36,7 @@ const VoyageData = [
 ];
 
 function TicketSelect({ navigation, route }) {
-  const { goingDate, comebackDate } = route.params;
+  const { goingDate, comebackDate, citytogo, cityfromgo } = route.params;
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -55,11 +55,15 @@ function TicketSelect({ navigation, route }) {
           </View>
 
           <View>
+            <Text style={styles.columnTitle}>Tarih</Text>
+          </View>
+
+          <View>
             <Text style={styles.columnTitle}>Saat</Text>
           </View>
 
           <View>
-            <Text style={styles.columnTitle}>Boş Koltuk</Text>
+            <Text style={styles.columnTitle}>İstikamet</Text>
           </View>
 
           <View>
@@ -73,6 +77,8 @@ function TicketSelect({ navigation, route }) {
             navigation={navigation}
             dateToGo={goingDate}
             dateToGoback={comebackDate}
+            citytogo={citytogo}
+            cityfromgo={cityfromgo}
           />
         ))}
       </View>

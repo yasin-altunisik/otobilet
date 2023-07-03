@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ToastAndroid } from "react-native";
 import styles from "./TicketSearch.style";
 import RadioGroup from "react-native-radio-buttons-group";
 import SelectDropdown from "react-native-select-dropdown";
@@ -7,7 +7,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Calendar, LocaleConfig } from "react-native-calendars";
 
 function TicketSearch({ navigation }) {
-  const countries = ["Egypt", "Canada", "Australia", "Ireland"];
+  const countries = ["Ankara", "İstanbul", "Samsun", "İzmir"];
   const [radioButtons, setRadioButtons] = useState([
     {
       id: "1", // acts as primary key, should be unique and non-empty string
@@ -28,6 +28,8 @@ function TicketSearch({ navigation }) {
   const [isPressedGidisDate, setIsPressedGidisDate] = useState(false);
   const [isPressedDonusDate, setIsPressedDonusDate] = useState(false);
   const [isGidisDonus, setIsGidisDonus] = useState(true);
+  const [cityFromGo, setCityFromGo] = useState("");
+  const [cityToGo, setCityToGo] = useState("");
 
   function onPressRadioButton(radioButtonsArray) {
     setRadioButtons(radioButtonsArray);
@@ -93,6 +95,23 @@ function TicketSearch({ navigation }) {
     },
   };
 
+  const search = () => {
+    if (cityFromGo != "" && cityToGo != "" && selected != "") {
+      navigation.navigate("TicketSelect", {
+        goingDate: gidisDate,
+        comebackDate: donusDate,
+        citytogo: cityToGo,
+        cityfromgo: cityFromGo,
+      });
+    } else {
+      ToastAndroid.showWithGravity(
+        "Boş alan bırakmayınız",
+        ToastAndroid.LONG,
+        ToastAndroid.TOP
+      );
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -109,7 +128,9 @@ function TicketSearch({ navigation }) {
           data={countries}
           // defaultValueByIndex={1}
           // defaultValue={'Egypt'}
-          onSelect={(selectedItem, index) => {}}
+          onSelect={(selectedItem, index) => {
+            setCityFromGo(selectedItem);
+          }}
           defaultButtonText={"Kalkış Noktası seçiniz"}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
@@ -146,7 +167,9 @@ function TicketSearch({ navigation }) {
           data={countries}
           // defaultValueByIndex={1}
           // defaultValue={'Egypt'}
-          onSelect={(selectedItem, index) => {}}
+          onSelect={(selectedItem, index) => {
+            setCityToGo(selectedItem);
+          }}
           defaultButtonText={"Varış Noktası seçiniz"}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
@@ -219,15 +242,7 @@ function TicketSearch({ navigation }) {
         {isPressedGidisDate && CalendarView()}
         {isPressedDonusDate && CalendarView()}
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.searchButton}
-            onPress={() =>
-              navigation.navigate("TicketSelect", {
-                goingDate: gidisDate,
-                comebackDate: donusDate,
-              })
-            }
-          >
+          <TouchableOpacity style={styles.searchButton} onPress={search}>
             <Text>Ara</Text>
           </TouchableOpacity>
         </View>

@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import styles from "./Voyage.style";
 import { TouchableOpacity } from "react-native";
 
-const Voyage = ({ info, navigation, dateToGo }) => {
+const Voyage = ({ info, navigation, dateToGo, citytogo, cityfromgo }) => {
   return (
     <TouchableOpacity
       onPress={() =>
@@ -21,11 +21,20 @@ const Voyage = ({ info, navigation, dateToGo }) => {
         </View>
 
         <View style={{ width: "20%", alignItems: "center" }}>
+          <Text>{dateToGo}</Text>
+        </View>
+
+        <View style={{ width: "20%", alignItems: "center" }}>
           <Text>{info.saat}</Text>
         </View>
 
         <View style={{ width: "20%", alignItems: "center" }}>
-          <Text>{info.bosKoltuk}</Text>
+          <View>
+            <Text>{cityfromgo}-</Text>
+          </View>
+          <View>
+            <Text>{citytogo}</Text>
+          </View>
         </View>
 
         <View style={{ width: "20%", alignItems: "center" }}>
