@@ -17,7 +17,3 @@ This project aims to be a strong foundation for react-native applications. It pr
 - [react-native-calendars]
 - [react-native-radio-buttons-group]
 - [react-native-select-dropdown]
-
-## Install
-
-eklenecek
