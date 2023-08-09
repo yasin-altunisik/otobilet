@@ -56,6 +56,12 @@ const VoyageDetail = ({ route, navigation }) => {
         </View>
 
         <Text></Text>
+        <View style={{ alignItems: "center" }}>
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+            Lütfen koltuk seçin.
+          </Text>
+        </View>
+        <Text></Text>
 
         <View
           style={{
@@ -71,8 +77,6 @@ const VoyageDetail = ({ route, navigation }) => {
           <View style={styles.seatLightskyblue}></View>
           <Text>Erkek Yolcu</Text>
         </View>
-
-        <Text></Text>
 
         <BusSeatViewer />
 

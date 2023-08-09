@@ -1,5 +1,11 @@
 import react from "react";
-import { View, ScrollView, Text } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  ToastAndroid,
+} from "react-native";
 import styles from "./BusSeatViewer.style";
 
 const data = [
@@ -425,6 +431,15 @@ const data = [
   },
 ];
 
+const toastMessage = () => {
+  ToastAndroid.showWithGravity(
+    "mail veya şifre boş olamaz",
+    ToastAndroid.LONG,
+    ToastAndroid.TOP
+  );
+  //console.log(data);
+};
+
 const seats = () => {
   let seatLine = [];
   for (let i = 0; i < 15; i++) {
@@ -433,30 +448,46 @@ const seats = () => {
       if (data[i * 4 + k].seatid != 0) {
         if (data[i * 4 + k].isEmpty == true) {
           seatSingle[k] = (
-            <View key={data[i * 4 + k].id} style={styles.seatBisque}>
+            <TouchableOpacity
+              key={data[i * 4 + k].id}
+              style={styles.seatBisque}
+              onPress={toastMessage}
+            >
               <Text style={styles.text}>{data[i * 4 + k].text}</Text>
-            </View>
+            </TouchableOpacity>
           );
         } else {
           if (data[i * 4 + k].cender == "male") {
             seatSingle[k] = (
-              <View key={data[i * 4 + k].id} style={styles.seatPink}>
+              <TouchableOpacity
+                key={data[i * 4 + k].id}
+                style={styles.seatPink}
+                onPress={toastMessage}
+              >
                 <Text style={styles.text}>{data[i * 4 + k].text}</Text>
-              </View>
+              </TouchableOpacity>
             );
           } else {
             seatSingle[k] = (
-              <View key={data[i * 4 + k].id} style={styles.seatBlue}>
+              <TouchableOpacity
+                key={data[i * 4 + k].id}
+                style={styles.seatBlue}
+                onPress={toastMessage}
+              >
                 <Text style={styles.text}>{data[i * 4 + k].text}</Text>
-              </View>
+              </TouchableOpacity>
             );
           }
         }
       } else {
         seatSingle[k] = (
-          <View key={data[i * 4 + k].id} style={styles.seatWhite}>
+          <TouchableOpacity
+            key={data[i * 4 + k].id}
+            style={styles.seatWhite}
+            onPress={toastMessage}
+          >
             <Text style={styles.text}>{data[i * 4 + k].text}</Text>
-          </View>
+          </TouchableOpacity>
         );
       }
     }
