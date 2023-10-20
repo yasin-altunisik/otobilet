@@ -2,7 +2,7 @@
 
 ![Alt Text](<https://github.com/yasin-altunisik/otobilet/blob/master/ezgif.com-video-to-gif%20(3).gif>)
 
-This project aims to be a strong foundation for react-native applications. It provides a clear and organized structure, core dependencies, and boilerplate to jumpstart development.
+This app helps people find, book and pay buses.
 
 ## Prerequisites
 
