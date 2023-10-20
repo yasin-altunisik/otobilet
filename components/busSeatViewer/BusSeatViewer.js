@@ -492,7 +492,6 @@ const seats = () => {
       }
     }
     let view = <View key={i}>{seatSingle}</View>;
-
     seatLine[i] = view;
   }
   return seatLine;
